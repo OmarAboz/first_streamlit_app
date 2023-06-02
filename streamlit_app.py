@@ -23,6 +23,8 @@ fruits_display = my_fruit_list.loc[fruits_selected]
 
 #Display the data frame for the user to select the items
 sl.dataframe(fruits_display)
+# New Header
+sl.header("Fruityvice Fruit Advice!")
 
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-sl.text(fruityvice_response)
+sl.text(fruityvice_response.json())
