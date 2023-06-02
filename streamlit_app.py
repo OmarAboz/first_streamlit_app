@@ -17,7 +17,8 @@ my_fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/da
 my_fruit_list = my_fruit_list.set_index('Fruit')
 
 # Allow selection of the fruits
-sl.multiselect("Please pick some fruits: ", list(my_fruit_list.index),['Avocado','Strawberries'])
+fruits_selected = sl.multiselect("Please pick some fruits: ", list(my_fruit_list.index),['Avocado','Strawberries'])
+fruits_display = my_fruit_list.loc[fruits_selected]
 
 #Display the data frame for the user to select the items
-sl.dataframe(my_fruit_list)
+sl.dataframe(fruits_display)
